@@ -9,8 +9,13 @@
     <p v-if="isShow">Element is shows by v-if</p>
     <p v-show="isShow">Element is shows by v-show</p>
 
-
     <p v-for="(name, index) in names" :key="name">{{ index }} - {{ name }}</p>
+
+    <div v-for="fN in fullName" :key="fN.first">
+      <p>{{ fN.first }}</p>
+      <hr>
+    
+    </div>
 
   </div>
 </template>
