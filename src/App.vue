@@ -4,10 +4,16 @@
     {{ JSON.stringify(formData, null, 2) }}
     <h3>Form Example</h3>
   </pre>
-    <form>
+    <form >
       <div>
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" v-model="formData.name">
+        <input type="text" name="name" id="name" v-model.trim.lazy="formData.name">
+      </div>
+      <br>
+      {{ formData.name }}
+      <div>
+        <label for="age">Age</label>
+        <input type="text" name="age" id="age" v-model.number="formData.age">
       </div>
       <br>
       <div>
@@ -23,11 +29,14 @@
       <div>
         <label for="countrys">
           <select name="countrys" id="countrys" multiple v-model="formData.countrys">
-          <option :value="country" v-for="(country, index) in countrys" :key="index">{{ country }}</option>
-        </select>
+            <option :value="country" v-for="(country, index) in countrys" :key="index">{{ country }}</option>
+          </select>
         </label>
       </div>
 
+      <br>
+
+      <button  @click.prevent="submitForm(), printMethod()">Save</button>
     </form>
   </div>
 </template>
@@ -43,11 +52,27 @@ export default {
       formData: {
         name: "",
         description: "",
-        country:"",
-        countrys:[],
-      }
+        age: "",
+        country: "",
+        countrys: [],
+        citys: {},
+      },
     }
   },
+  methods: {
+    // multiple methods
+
+    //v-on @
+    // @click
+    // @su
+    printMethod(){
+      console.log("method is print");
+    },
+    submitForm() {
+      this.printMethod(); 
+      console.log(this.formData);
+    }
+  }
 }
 </script>
 
