@@ -27,29 +27,22 @@ export default {
             lName: ""
         }
     },
-    watch:{
-        // existingPerson:{
-        //     handler(newValue){
-        //         console.log(newValue)
-        //         this.fName= newValue.fName;
-        //     },
-        //     immediate:true,
-        // }
-    },
-    mounted() {
-        console.log("create");
-
-        console.log(this.existingPerson)
-        // console.log(Object.values(this.existingPerson.fName))
-
-        // let person = JSON.parse(this.existingPerson);
-        this.fName = "vishal";
-        this.lName = "sharma"
-        // this.lName = this.existingPerson.lName;
+    watch: {
+        existingPerson: {
+            handler(newValue) {
+                console.log(newValue)
+                if (newValue !== undefined && newValue !== null) {
+                    this.fName = newValue.fName;
+                    this.lName = newValue.lName;
+                }
+            },
+            immediate: true,
+        }
     },
     methods: {
         formAction() {
             console.log("button click");
+            // login for add user form
             if (this.title == "Add") {
                 let person = {
                     fName: this.fName,
@@ -58,7 +51,8 @@ export default {
                 console.log(person)
                 this.$emit("addUser", person);
             }
-            if(this.title == "Edit"){
+            // logic for edit user form 
+            if (this.title == "Edit") {
 
                 //validation
                 let person = {
@@ -71,6 +65,5 @@ export default {
 
         },
     }
-
 }
 </script>
