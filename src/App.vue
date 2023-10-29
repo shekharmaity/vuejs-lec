@@ -7,7 +7,8 @@
 
     <user-form title="Add" @addUser="addUser" v-show="isAdd"></user-form>
     <user-form title="Edit" @editUser="editUser" :existingPerson="existingPerson" v-show="isEdit"></user-form>
-  </div>
+    {{ userData }}
+ </div>
 </template>
 
 <script>
@@ -24,18 +25,23 @@ export default {
       existingPerson: {
         fName: "Ravi",
         lName: "sharma"
-      }
+      },
+      userData:{},
     }
   },
   methods: {
     addUser(userData) {
       console.log("addUser" + userData.fName);
+      this.userData = userData;
       this.isAdd = false;
       //http backend
     },
 
     editUser(userData) {
-      console.log("addUser" + userData.fName);
+      console.log("editUser" + userData.fName);
+      this.userData = userData;
+
+      //BL ajax
       this.isEdit = false;
     }
 
