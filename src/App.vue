@@ -7,18 +7,22 @@
       <post-list-details></post-list-details>
       <add-post></add-post>
 
+      <tristar-details></tristar-details>
+
   </div>
 </template>
 
 <script>
 import AddPost from './components/AddPost.vue'
 import PostListDetails from './components/PostListDetails.vue'
+import TristarDetails from './components/TristarDetails.vue'
 // import PostDetails from './components/PostDetails.vue'
 // import PostForm from './components/PostForm.vue'
 export default {
   components: {
     PostListDetails,
-    AddPost 
+    AddPost,
+    TristarDetails 
     // PostDetails, PostForm 
   
   },
