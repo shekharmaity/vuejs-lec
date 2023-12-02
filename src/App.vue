@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div style="text-align: center;">
     <h2>Main Page</h2>
+
+    <!-- <home></home> -->
 
     <router-link to="/login">Login Page</router-link>
     
