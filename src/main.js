@@ -23,6 +23,8 @@ const store = createStore({
   },
   mutations: {
     incrementCounter(state) {
+      // BL sync async
+      // state commit
       state.counter++;
     },
 
@@ -30,6 +32,20 @@ const store = createStore({
       state.counter = state.counter + value;
     },
   },
+  actions:{
+    incrementCounter(context){
+      // logic
+      // call mutations
+      console.log(context)
+      setTimeout(() => {
+      context.commit('incrementCounter')}
+      ,1000);
+
+    }
+  },
+
+
+
   getters: {
     // getCounter(state){
     //   return state.counter + 2;
